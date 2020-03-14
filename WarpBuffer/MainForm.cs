@@ -49,7 +49,7 @@ namespace WarpBuffer
 
         private void DoWork(string clientid, int totalWorker)
         {
-            Logs($"Client ID {clientid}: Start");
+            Logs($"ID '{clientid}': Start");
             _max = int.Parse(numMaxGB.Text);
             _earned = 0;
             _totalDone = 0;
@@ -76,20 +76,16 @@ namespace WarpBuffer
 
                         HttpRequest request = null;
                         StringContent body = null;
+                        var proxy = RandomProxy();
+                        if (proxy == "")
+                        {
+                            return;
+                        }
+
                         try
                         {
-                            var proxy = RandomProxy();
-                            if (proxy == "")
-                            {
-                                return;
-                            }
-
                             var proxyInfo = ProxyClient.Parse(ProxyType.HTTP, proxy);
-                            request = new HttpRequest
-                            {
-                                Proxy = proxyInfo,
-                                KeepAlive = false
-                            };
+                            request = new HttpRequest {Proxy = proxyInfo, KeepAlive = false, ConnectTimeout = 2000};
                             request.AddHeader("Content-Type", "application/json");
                             body = new StringContent(JsonConvert.SerializeObject(new
                             {
@@ -99,6 +95,7 @@ namespace WarpBuffer
                             {
                                 request.Post("https://api.cloudflareclient.com/v0a778/reg", body);
                             }
+
                             lock (_lock)
                             {
                                 total++;
@@ -106,9 +103,18 @@ namespace WarpBuffer
                                 UpdateEarned();
                             }
                         }
+                        catch (ProxyException proxyException)
+                        {
+                            _proxies.Remove(proxy);
+                            Logs($"Proxy Error: {proxy} - {proxyException.Message}");
+                        }
+                        catch (HttpException httpException)
+                        {
+                            Logs($"Http Error: {proxy} - {httpException.Message}");
+                        }
                         catch (Exception e)
                         {
-                            Logs($"Client ID {clientid}: {e.Message}");
+                            Logs($"Error: {e.Message}");
                         }
                         finally
                         {
@@ -123,7 +129,7 @@ namespace WarpBuffer
             _threads.WaitForIdle();
             _threads.Dispose();
             UpdateTotalDone();
-            Logs($"Client ID {clientid}: Earned {_earned} GB");
+            Logs($"ID {clientid}: Earned {_earned} GB");
         }
 
         private void Running(bool status)
