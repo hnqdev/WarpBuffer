@@ -1,7 +1,7 @@
 # WarpBuffer
 Cloudflare Warp+ Buffer
 
-[Download Latest Version](https://github.com/jhuyvu/WarpBuffer/releases/tag/1.2 "Download Latest Version")
+[Download Latest Version](https://github.com/jhuyvu/WarpBuffer/releases/latest "Download Latest Version")
 
 ![](https://i.imgur.com/ZTayZn3.png)
 #### How to get Client ID?
