@@ -150,7 +150,7 @@ namespace WarpBuffer
             _threads.WaitForIdle();
             _threads.Dispose();
             UpdateTotalDone();
-            Logs($"ID {clientid}: Earned {_earned} GB");
+            Logs($"ID '{clientid}': Earned {_earned} GB");
         }
 
         private void Running(bool status)
