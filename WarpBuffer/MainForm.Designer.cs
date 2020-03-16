@@ -64,7 +64,6 @@
             this.txtClientIDList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtClientIDList.Size = new System.Drawing.Size(270, 148);
             this.txtClientIDList.TabIndex = 0;
-            this.txtClientIDList.Text = "a5ff24f3-6bce-4b1d-ac75-e5c9b1ae2cfa";
             this.toolTipThread.SetToolTip(this.txtClientIDList, "List of Client ID");
             // 
             // btnStart
@@ -73,7 +72,7 @@
             this.btnStart.Location = new System.Drawing.Point(14, 413);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(270, 27);
-            this.btnStart.TabIndex = 1;
+            this.btnStart.TabIndex = 6;
             this.btnStart.Text = "Start";
             this.btnStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnStart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -87,7 +86,7 @@
             this.btnStop.Location = new System.Drawing.Point(14, 447);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(270, 27);
-            this.btnStop.TabIndex = 2;
+            this.btnStop.TabIndex = 7;
             this.btnStop.Text = "Stop";
             this.btnStop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnStop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -99,7 +98,7 @@
             this.numThreads.Location = new System.Drawing.Point(14, 355);
             this.numThreads.Name = "numThreads";
             this.numThreads.Size = new System.Drawing.Size(270, 23);
-            this.numThreads.TabIndex = 7;
+            this.numThreads.TabIndex = 4;
             this.numThreads.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTipThread.SetToolTip(this.numThreads, "Thread Number");
             this.numThreads.Value = new decimal(new int[] {
@@ -117,7 +116,7 @@
             this.txtLogs.ReadOnly = true;
             this.txtLogs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtLogs.Size = new System.Drawing.Size(270, 148);
-            this.txtLogs.TabIndex = 8;
+            this.txtLogs.TabIndex = 3;
             // 
             // txtProxyPath
             // 
@@ -126,7 +125,7 @@
             this.txtProxyPath.Name = "txtProxyPath";
             this.txtProxyPath.ReadOnly = true;
             this.txtProxyPath.Size = new System.Drawing.Size(166, 23);
-            this.txtProxyPath.TabIndex = 9;
+            this.txtProxyPath.TabIndex = 1;
             // 
             // btnLoadProxy
             // 
@@ -134,7 +133,7 @@
             this.btnLoadProxy.Location = new System.Drawing.Point(186, 169);
             this.btnLoadProxy.Name = "btnLoadProxy";
             this.btnLoadProxy.Size = new System.Drawing.Size(98, 25);
-            this.btnLoadProxy.TabIndex = 10;
+            this.btnLoadProxy.TabIndex = 2;
             this.btnLoadProxy.Text = "Load Proxy";
             this.btnLoadProxy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLoadProxy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -154,7 +153,7 @@
             this.groupBox1.Location = new System.Drawing.Point(14, 480);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(270, 88);
-            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Statistics";
             // 
@@ -163,7 +162,7 @@
             this.lbTotalProxy.Location = new System.Drawing.Point(98, 64);
             this.lbTotalProxy.Name = "lbTotalProxy";
             this.lbTotalProxy.Size = new System.Drawing.Size(166, 15);
-            this.lbTotalProxy.TabIndex = 20;
+            this.lbTotalProxy.TabIndex = 7;
             this.lbTotalProxy.Text = "0";
             this.lbTotalProxy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -173,7 +172,7 @@
             this.label7.Location = new System.Drawing.Point(6, 64);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(36, 15);
-            this.label7.TabIndex = 19;
+            this.label7.TabIndex = 6;
             this.label7.Text = "Proxy";
             // 
             // lbTotalDoneClient
@@ -181,7 +180,7 @@
             this.lbTotalDoneClient.Location = new System.Drawing.Point(98, 49);
             this.lbTotalDoneClient.Name = "lbTotalDoneClient";
             this.lbTotalDoneClient.Size = new System.Drawing.Size(166, 15);
-            this.lbTotalDoneClient.TabIndex = 18;
+            this.lbTotalDoneClient.TabIndex = 5;
             this.lbTotalDoneClient.Text = "0";
             this.lbTotalDoneClient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -191,7 +190,7 @@
             this.label5.Location = new System.Drawing.Point(6, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 15);
-            this.label5.TabIndex = 17;
+            this.label5.TabIndex = 4;
             this.label5.Text = "Done";
             // 
             // lbTotalClient
@@ -199,7 +198,7 @@
             this.lbTotalClient.Location = new System.Drawing.Point(98, 34);
             this.lbTotalClient.Name = "lbTotalClient";
             this.lbTotalClient.Size = new System.Drawing.Size(166, 15);
-            this.lbTotalClient.TabIndex = 16;
+            this.lbTotalClient.TabIndex = 3;
             this.lbTotalClient.Text = "0";
             this.lbTotalClient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -209,7 +208,7 @@
             this.label3.Location = new System.Drawing.Point(6, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 15);
-            this.label3.TabIndex = 15;
+            this.label3.TabIndex = 2;
             this.label3.Text = "Total";
             // 
             // lbEarned
@@ -217,7 +216,7 @@
             this.lbEarned.Location = new System.Drawing.Point(98, 19);
             this.lbEarned.Name = "lbEarned";
             this.lbEarned.Size = new System.Drawing.Size(166, 15);
-            this.lbEarned.TabIndex = 14;
+            this.lbEarned.TabIndex = 1;
             this.lbEarned.Text = "0";
             this.lbEarned.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -227,7 +226,7 @@
             this.label1.Location = new System.Drawing.Point(6, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 15);
-            this.label1.TabIndex = 13;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Current Earned";
             // 
             // numMaxGB
@@ -235,7 +234,7 @@
             this.numMaxGB.Location = new System.Drawing.Point(14, 384);
             this.numMaxGB.Name = "numMaxGB";
             this.numMaxGB.Size = new System.Drawing.Size(270, 23);
-            this.numMaxGB.TabIndex = 12;
+            this.numMaxGB.TabIndex = 5;
             this.numMaxGB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTipThread.SetToolTip(this.numMaxGB, "How many GB do you want to buff?");
             this.numMaxGB.Value = new decimal(new int[] {
@@ -251,7 +250,7 @@
             this.statusStrip.Location = new System.Drawing.Point(0, 580);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(297, 22);
-            this.statusStrip.TabIndex = 13;
+            this.statusStrip.TabIndex = 9;
             // 
             // toolStripStatusLabel1
             // 

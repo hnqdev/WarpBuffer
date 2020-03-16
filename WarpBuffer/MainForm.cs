@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Configuration;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -31,9 +32,16 @@ namespace WarpBuffer
         private int _totalDone;
         private readonly object _lock = new object();
         private int _max = 100;
+
+        private const int EM_SETCUEBANNER = 0x1501;
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)]string lParam);
         public MainForm()
         {
             InitializeComponent();
+            SendMessage(txtClientIDList.Handle, EM_SETCUEBANNER, 0, "List of Client ID");
+            SendMessage(txtLogs.Handle, EM_SETCUEBANNER, 0, "Logs");
+            SendMessage(txtProxyPath.Handle, EM_SETCUEBANNER, 0, "HTTP Proxy File Path");
         }
 
         private void UpdateEarned()
