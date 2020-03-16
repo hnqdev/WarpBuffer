@@ -55,7 +55,7 @@ namespace WarpBuffer
             Invoke(new Action(() => { lbTotalDoneClient.Text = _totalDone.ToString(); }));
         }
 
-        private void DoWork(string clientid, int totalWorker)
+        private void DoWork(string clientid, int totalWorker, int timeout, string proxyType)
         {
             Logs($"ID '{clientid}': Start");
             _max = int.Parse(numMaxGB.Text);
@@ -92,8 +92,21 @@ namespace WarpBuffer
 
                         try
                         {
-                            var proxyInfo = ProxyClient.Parse(ProxyType.HTTP, proxy);
-                            request = new HttpRequest {Proxy = proxyInfo, KeepAlive = false, ConnectTimeout = 2000};
+                            var pxType = ProxyType.HTTP;
+                            switch (proxyType)
+                            {
+                                case "HTTP":
+                                    pxType = ProxyType.HTTP;
+                                    break;
+                                case "SOCKS5":
+                                    pxType = ProxyType.Socks5;
+                                    break;
+                                case "SOCKS4":
+                                    pxType = ProxyType.Socks4;
+                                    break;
+                            }
+                            var proxyInfo = ProxyClient.Parse(pxType, proxy);
+                            request = new HttpRequest {Proxy = proxyInfo, KeepAlive = false, ConnectTimeout = timeout};
                             request.AddHeader("Content-Type", "application/json");
                             body = new StringContent(JsonConvert.SerializeObject(new
                             {
@@ -195,11 +208,13 @@ namespace WarpBuffer
             var clients = Regex.Split(listClientId, "\n", RegexOptions.Multiline);
             _threadPool = new SmartThreadPool(){Concurrency = 1, MaxThreads = 1, MinThreads = 1};
             var totalClient = 0;
+            var timeout = int.Parse(numTimeout.Text);
+            var proxyType = comboProxyType.Items[comboProxyType.SelectedIndex].ToString();
             foreach (var _ in clients)
             {
                 var client = _.Trim();
                 if (client.Length <= 0) continue;
-                _threadPool.QueueWorkItem(DoWork, client, int.Parse(numThreads.Text));
+                _threadPool.QueueWorkItem(DoWork, client, int.Parse(numThreads.Text), timeout, proxyType);
                 totalClient++;
             }
             lbTotalProxy.Text = _proxies.Count.ToString();
@@ -242,6 +257,16 @@ namespace WarpBuffer
         {
             txtProxyPath.Text = Properties.Settings.Default.ProxyFilePath;
             _proxyPath = txtProxyPath.Text;
+            var proxyType = Properties.Settings.Default.ProxyType;
+            comboProxyType.SelectedIndex = comboProxyType.FindStringExact(proxyType);
+        }
+
+        private void comboProxyType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var proxyType = comboProxyType.Items[comboProxyType.SelectedIndex].ToString();
+            Properties.Settings.Default.ProxyType = proxyType;
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Reload();
         }
     }
 }

@@ -34,5 +34,17 @@ namespace WarpBuffer.Properties {
                 this["ProxyFilePath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("HTTP")]
+        public string ProxyType {
+            get {
+                return ((string)(this["ProxyType"]));
+            }
+            set {
+                this["ProxyType"] = value;
+            }
+        }
     }
 }

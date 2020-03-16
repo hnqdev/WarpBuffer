@@ -5,5 +5,8 @@
     <Setting Name="ProxyFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="ProxyType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">HTTP</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
