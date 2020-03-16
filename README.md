@@ -2,6 +2,10 @@
 Cloudflare Warp+ Buffer
 
 ![](https://i.imgur.com/ZTayZn3.png)
+#### How to get Client ID?
+1. Go to 1.1.1.1 application on your mobile.
+2. Follow there step: "Settings" > "More settings" > "Diagnostics" > "Client Configuration".
+3. Copy your "ID" field.
 #### Proxy Format
 - 127.0.0.1:1080:username:password
 - 127.0.0.1:1080
