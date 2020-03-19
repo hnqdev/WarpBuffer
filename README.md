@@ -14,6 +14,6 @@ Current Version: **1.3**
 - 127.0.0.1:1080:username:password
 - 127.0.0.1:1080
 #### Proxy Type
-- HTTP
+- HTTP, SOCKS4, SOCKS5
 #### Free Proxy List
 https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=all&ssl=all&anonymity=all
