@@ -49,10 +49,12 @@
             this.numMaxGB = new System.Windows.Forms.NumericUpDown();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTipThread = new System.Windows.Forms.ToolTip(this.components);
+            this.ch_GetProxylist = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.comboProxyType = new System.Windows.Forms.ComboBox();
             this.numTimeout = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -79,21 +81,21 @@
             // btnStart
             // 
             this.btnStart.Image = ((System.Drawing.Image)(resources.GetObject("btnStart.Image")));
-            this.btnStart.Location = new System.Drawing.Point(12, 570);
+            this.btnStart.Location = new System.Drawing.Point(12, 313);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(270, 27);
+            this.btnStart.Size = new System.Drawing.Size(270, 26);
             this.btnStart.TabIndex = 6;
             this.btnStart.Text = "Start";
             this.btnStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnStart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.btnStart.Click += new System.EventHandler(this.BtnStart_Click);
             // 
             // btnStop
             // 
             this.btnStop.Enabled = false;
             this.btnStop.Image = ((System.Drawing.Image)(resources.GetObject("btnStop.Image")));
-            this.btnStop.Location = new System.Drawing.Point(12, 603);
+            this.btnStop.Location = new System.Drawing.Point(12, 345);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(270, 27);
             this.btnStop.TabIndex = 7;
@@ -101,16 +103,25 @@
             this.btnStop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnStop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            this.btnStop.Click += new System.EventHandler(this.BtnStop_Click);
             // 
             // numThreads
             // 
-            this.numThreads.Location = new System.Drawing.Point(12, 497);
+            this.numThreads.Location = new System.Drawing.Point(291, 240);
+            this.numThreads.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.numThreads.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numThreads.Name = "numThreads";
-            this.numThreads.Size = new System.Drawing.Size(270, 23);
+            this.numThreads.Size = new System.Drawing.Size(270, 27);
             this.numThreads.TabIndex = 4;
             this.numThreads.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTipThread.SetToolTip(this.numThreads, "Thread Number");
             this.numThreads.Value = new decimal(new int[] {
             10,
             0,
@@ -120,7 +131,7 @@
             // txtLogs
             // 
             this.txtLogs.BackColor = System.Drawing.SystemColors.Window;
-            this.txtLogs.Location = new System.Drawing.Point(12, 240);
+            this.txtLogs.Location = new System.Drawing.Point(291, 27);
             this.txtLogs.Multiline = true;
             this.txtLogs.Name = "txtLogs";
             this.txtLogs.ReadOnly = true;
@@ -131,16 +142,18 @@
             // txtProxyPath
             // 
             this.txtProxyPath.BackColor = System.Drawing.SystemColors.Window;
-            this.txtProxyPath.Location = new System.Drawing.Point(12, 196);
+            this.txtProxyPath.Enabled = false;
+            this.txtProxyPath.Location = new System.Drawing.Point(291, 196);
             this.txtProxyPath.Name = "txtProxyPath";
             this.txtProxyPath.ReadOnly = true;
-            this.txtProxyPath.Size = new System.Drawing.Size(166, 23);
+            this.txtProxyPath.Size = new System.Drawing.Size(166, 27);
             this.txtProxyPath.TabIndex = 1;
             // 
             // btnLoadProxy
             // 
+            this.btnLoadProxy.Enabled = false;
             this.btnLoadProxy.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadProxy.Image")));
-            this.btnLoadProxy.Location = new System.Drawing.Point(184, 195);
+            this.btnLoadProxy.Location = new System.Drawing.Point(463, 194);
             this.btnLoadProxy.Name = "btnLoadProxy";
             this.btnLoadProxy.Size = new System.Drawing.Size(98, 25);
             this.btnLoadProxy.TabIndex = 2;
@@ -148,7 +161,7 @@
             this.btnLoadProxy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLoadProxy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLoadProxy.UseVisualStyleBackColor = true;
-            this.btnLoadProxy.Click += new System.EventHandler(this.btnLoadProxy_Click);
+            this.btnLoadProxy.Click += new System.EventHandler(this.BtnLoadProxy_Click);
             // 
             // groupBox1
             // 
@@ -160,7 +173,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.lbEarned);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 636);
+            this.groupBox1.Location = new System.Drawing.Point(291, 284);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(270, 88);
             this.groupBox1.TabIndex = 8;
@@ -181,7 +194,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(6, 64);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 15);
+            this.label7.Size = new System.Drawing.Size(45, 20);
             this.label7.TabIndex = 6;
             this.label7.Text = "Proxy";
             // 
@@ -199,7 +212,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 49);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 15);
+            this.label5.Size = new System.Drawing.Size(45, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Done";
             // 
@@ -217,7 +230,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 34);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 15);
+            this.label3.Size = new System.Drawing.Size(42, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Total";
             // 
@@ -235,20 +248,20 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 15);
+            this.label1.Size = new System.Drawing.Size(107, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Current Earned";
             // 
             // numMaxGB
             // 
-            this.numMaxGB.Location = new System.Drawing.Point(12, 541);
+            this.numMaxGB.Location = new System.Drawing.Point(12, 284);
             this.numMaxGB.Maximum = new decimal(new int[] {
-            10000,
+            10000000,
             0,
             0,
             0});
             this.numMaxGB.Name = "numMaxGB";
-            this.numMaxGB.Size = new System.Drawing.Size(270, 23);
+            this.numMaxGB.Size = new System.Drawing.Size(270, 27);
             this.numMaxGB.TabIndex = 5;
             this.numMaxGB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTipThread.SetToolTip(this.numMaxGB, "How many GB do you want to buff?");
@@ -260,24 +273,56 @@
             // 
             // statusStrip
             // 
+            this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip.Location = new System.Drawing.Point(0, 735);
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2});
+            this.statusStrip.Location = new System.Drawing.Point(0, 383);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(295, 22);
+            this.statusStrip.Size = new System.Drawing.Size(573, 26);
             this.statusStrip.TabIndex = 9;
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(126, 17);
-            this.toolStripStatusLabel1.Text = "by James from J2TeaM";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 20);
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(327, 20);
+            this.toolStripStatusLabel2.Text = "original by James from J2TeaM, remade by Hiep";
+            this.toolStripStatusLabel2.Click += new System.EventHandler(this.toolStripStatusLabel2_Click);
             // 
             // toolTipThread
             // 
             this.toolTipThread.IsBalloon = true;
             this.toolTipThread.ToolTipTitle = "Notice";
+            // 
+            // ch_GetProxylist
+            // 
+            this.ch_GetProxylist.AutoSize = true;
+            this.ch_GetProxylist.Checked = true;
+            this.ch_GetProxylist.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ch_GetProxylist.Location = new System.Drawing.Point(190, 177);
+            this.ch_GetProxylist.Name = "ch_GetProxylist";
+            this.ch_GetProxylist.Size = new System.Drawing.Size(113, 24);
+            this.ch_GetProxylist.TabIndex = 19;
+            this.ch_GetProxylist.Text = "Get Proxylist";
+            this.toolTipThread.SetToolTip(this.ch_GetProxylist, "Get proxy list online from proxyscrape.com");
+            this.ch_GetProxylist.UseVisualStyleBackColor = true;
+            this.ch_GetProxylist.CheckedChanged += new System.EventHandler(this.ch_GetProxylist_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(110, 20);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "List of Client ID";
+            this.toolTipThread.SetToolTip(this.label2, "Go to Settings -> Diagnostics -> ID, fill your ID(s) below");
             // 
             // comboProxyType
             // 
@@ -287,100 +332,90 @@
             "HTTP",
             "SOCKS5",
             "SOCKS4"});
-            this.comboProxyType.Location = new System.Drawing.Point(12, 409);
+            this.comboProxyType.Location = new System.Drawing.Point(12, 196);
             this.comboProxyType.Name = "comboProxyType";
-            this.comboProxyType.Size = new System.Drawing.Size(270, 23);
+            this.comboProxyType.Size = new System.Drawing.Size(270, 28);
             this.comboProxyType.TabIndex = 10;
-            this.toolTipThread.SetToolTip(this.comboProxyType, "Proxy Type");
-            this.comboProxyType.SelectedIndexChanged += new System.EventHandler(this.comboProxyType_SelectedIndexChanged);
+            this.comboProxyType.SelectedIndexChanged += new System.EventHandler(this.ComboProxyType_SelectedIndexChanged);
             // 
             // numTimeout
             // 
-            this.numTimeout.Location = new System.Drawing.Point(12, 453);
+            this.numTimeout.Location = new System.Drawing.Point(12, 240);
             this.numTimeout.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.numTimeout.Name = "numTimeout";
-            this.numTimeout.Size = new System.Drawing.Size(270, 23);
+            this.numTimeout.Size = new System.Drawing.Size(270, 27);
             this.numTimeout.TabIndex = 11;
             this.numTimeout.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTipThread.SetToolTip(this.numTimeout, "Connect Timeout");
             this.numTimeout.Value = new decimal(new int[] {
             2000,
             0,
             0,
             0});
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 15);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "List of Client ID";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 178);
+            this.label4.Location = new System.Drawing.Point(288, 178);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 15);
+            this.label4.Size = new System.Drawing.Size(72, 20);
             this.label4.TabIndex = 13;
             this.label4.Text = "Proxy File";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 222);
+            this.label6.Location = new System.Drawing.Point(288, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 15);
+            this.label6.Size = new System.Drawing.Size(40, 20);
             this.label6.TabIndex = 14;
             this.label6.Text = "Logs";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 391);
+            this.label8.Location = new System.Drawing.Point(12, 178);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 15);
+            this.label8.Size = new System.Drawing.Size(80, 20);
             this.label8.TabIndex = 15;
             this.label8.Text = "Proxy Type";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(9, 435);
+            this.label9.Location = new System.Drawing.Point(9, 222);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 15);
+            this.label9.Size = new System.Drawing.Size(122, 20);
             this.label9.TabIndex = 16;
             this.label9.Text = "Connect Timeout";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(9, 479);
+            this.label10.Location = new System.Drawing.Point(288, 222);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 15);
+            this.label10.Size = new System.Drawing.Size(61, 20);
             this.label10.TabIndex = 17;
             this.label10.Text = "Threads";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(9, 523);
+            this.label11.Location = new System.Drawing.Point(9, 266);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 15);
+            this.label11.Size = new System.Drawing.Size(60, 20);
             this.label11.TabIndex = 18;
             this.label11.Text = "Max GB";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(295, 757);
+            this.ClientSize = new System.Drawing.Size(573, 409);
+            this.Controls.Add(this.ch_GetProxylist);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -452,6 +487,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.CheckBox ch_GetProxylist;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }
 
